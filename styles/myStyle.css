@@ -1,0 +1,15 @@
+.container {
+    margin: auto;
+    margin-top: 5em;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 320px;
+    width: 320px;
+    border: 2px solid black;
+}
+
+.sqrPixel {
+    height: 20px;
+    width: 20px;
+}
