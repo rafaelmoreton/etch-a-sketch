@@ -1,14 +1,4 @@
-const btnCntainr = document.querySelector(".buttons");
-const container = document.querySelector(".container");
-
-// Initial setting
-let gridSize = 16;
-let adjustedWidth = "20px";
-let adjustedHeight = "20px";
-let colorfull = 0;
-let blacknwhite = 0;
-
-// Universal scope function variables
+// Universal scope variables
 let newHeight;
 let newWidth;
 let column;
@@ -16,6 +6,65 @@ let square;
 let gridLoopCounter;
 let currentSqrColor;
 
+// --- //
+// DOM Selectors
+const btnCntainr = document.querySelector(".buttons");
+const container = document.querySelector(".container");
+const resetBtn = document.querySelector("#reset");
+const redefineBtn = document.querySelector("#redefineSize");
+const colorBtn = document.querySelector("#color");
+const blacknwhiteBtn = document.querySelector("#blacknwhite");
+
+// --- //
+// Initial settings
+let gridSize = 16;
+let adjustedWidth = "20px";
+let adjustedHeight = "20px";
+let colorfull = 0;
+let blacknwhite = 0;
+createGrid();
+
+// --- //
+// Add functionality to buttons
+resetBtn.addEventListener("click", () => {
+    redefineGrid(gridSize);
+})
+redefineBtn.addEventListener("click", () => {
+    let inputValue = prompt("ATENÇÃO! A TELA ATUAL SERÁ APAGADA. Para continuar, insira quantos píxels a nova tela deve ter de lado. Deve ser um número de 2 a 100.")
+    gridSize = parseInt(Number(inputValue));
+    if (((typeof gridSize) === "number") && (gridSize >= 2) && (gridSize <= 100)) {
+        redefineGrid(gridSize);
+    } else if ((inputValue) == null) {
+        alert("Nenhum número inserido.");
+    } else {
+        alert(inputValue + " não é um número válido.");
+    }
+})
+colorBtn.addEventListener("click", () => {
+    if (colorfull == 0) {
+        colorfull = 1;
+        blacknwhite = 0;
+        blacknwhiteBtn.classList.remove("pressedButton");
+        colorBtn.classList.add("pressedButton");
+    } else {
+        colorfull = 0;
+        colorBtn.classList.remove("pressedButton");
+    }
+})
+blacknwhiteBtn.addEventListener("click", () => {
+    if (blacknwhite == 0) {
+        blacknwhite = 1;
+        colorfull = 0;
+        colorBtn.classList.remove("pressedButton");
+        blacknwhiteBtn.classList.add("pressedButton");
+    } else {
+        blacknwhite = 0;
+        blacknwhiteBtn.classList.remove("pressedButton");
+    }
+})
+
+// --- //
+// Grid creation functions
 function createGrid() {
     for (gridLoopCounter = 0; gridLoopCounter < gridSize; gridLoopCounter++) {
     column = document.createElement("div");
@@ -58,6 +107,8 @@ function redefineGrid(size) {
     createGrid();
 };
 
+// --- //
+// Draw tools functions
 function generateRandomColor() {
     var randomColor = "#"+Math.floor(Math.random()*16777215).toString(16);
     return randomColor;
@@ -82,3 +133,5 @@ function darken() {
     let darkerColor = "rgb(" + colorArray.join(", ") + ")"
     return darkerColor;
 }
+
+// --- //

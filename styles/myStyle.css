@@ -9,3 +9,16 @@
     border: 2px solid black;
 }
 
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+button {
+    margin: 5px;
+}
+
+.pressedButton {
+    background-color:aquamarine;
+}
