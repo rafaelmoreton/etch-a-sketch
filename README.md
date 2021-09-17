@@ -1,3 +1,1 @@
-Neste projeto / exercício do Odin Project estou combinando HTML, Javascript e CSS pela primeira vez para criar uma tela de desenho. As instruções principais são para criar um grid de divs que se alteram quando o mouse passa por cima. O objetivo é fixar o uso da manipulação de DOM através de Javascript.
-
-Já consegui criar o grid de 16x16 através de Javascript como instruído no enunciado do projeto e fazê-lo responsivo ao passar do mouse. Faltam algumas funcionalidades extras, como a possibilidade de mudar o tamanho do grid, cor dos quadrados que se alteram, etc.
+Neste projeto / exercício do Odin Project estou combinando HTML, Javascript e CSS pela primeira vez para criar uma tela de desenho. As instruções principais são para criar um grid de divs que se alteram quando o mouse passa por cima de acordo com a ferramenta de desenho selecionada. O objetivo é fixar o uso da manipulação de DOM através de Javascript.
